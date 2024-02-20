@@ -1,0 +1,11 @@
+.scores-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.score {
+  font-family: "Roboto Serif", serif;
+  font-weight: 600;
+  font-size: 24px;
+}

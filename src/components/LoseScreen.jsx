@@ -1,9 +1,9 @@
-import "./LoserScreen.css";
+import "./LoseScreen.css";
 import { useState } from "react";
 import clsx from "clsx";
 import loseGifs from "../loseGifs";
 
-const LoserScreen = ({ onStartGame, className }) => {
+const LoseScreen = ({ onStartGame, className }) => {
   const [showCards, setShowCards] = useState(false);
 
   const handleStartGame = () => {
@@ -30,4 +30,4 @@ const LoserScreen = ({ onStartGame, className }) => {
     </div>
   );
 };
-export default LoserScreen;
+export default LoseScreen;

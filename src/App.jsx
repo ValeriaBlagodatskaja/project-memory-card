@@ -64,6 +64,10 @@ function App() {
                 );
               })}
             </div>
+
+            <span className="game-progress">
+              {currentScore} / {initialCards.length}{" "}
+            </span>
           </div>
         ) : (
           <StartScreen onStartGame={handleStartGame} />

@@ -5,9 +5,13 @@ import { useState } from "react";
 import initialCards from "./cardsData.jsx";
 import StartScreen from "./components/StartScreen";
 import ScoreBoard from "./components/ScoreBoard";
+import WinScreen from "./components/WinScreen.jsx";
+import LoseScreen from "./components/LoseScreen.jsx";
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
+  const [showWinScreen, setShowWinScreen] = useState(false);
+  const [showLoseScreen, setShowLoseScreen] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [cards, setCards] = useState(initialCards);
@@ -19,7 +23,7 @@ function App() {
   const handleCardSelect = (index) => {
     setCards((prevCards) => {
       if (prevCards[index].hasBeenClicked) {
-        alert("Game over!");
+        setShowLoseScreen(true);
         setGameStarted(false);
         setCurrentScore(0);
         return initialCards.map((card) => ({ ...card, hasBeenClicked: false }));
@@ -28,6 +32,18 @@ function App() {
       const updatedCards = prevCards.map((card, i) =>
         i === index ? { ...card, hasBeenClicked: true } : card
       );
+
+      const allCardsClicked = updatedCards.every((card) => card.hasBeenClicked);
+
+      if (allCardsClicked) {
+        setShowWinScreen(true);
+        setGameStarted(false);
+        setCurrentScore(0);
+        setHighScore((prevHighScore) =>
+          currentScore + 1 > prevHighScore ? currentScore + 1 : prevHighScore
+        );
+        return initialCards.map((card) => ({ ...card, hasBeenClicked: false }));
+      }
 
       shuffle(updatedCards);
 
@@ -42,6 +58,8 @@ function App() {
 
   const handleStartGame = () => {
     setGameStarted(true);
+    setShowWinScreen(false);
+    setShowLoseScreen(false);
   };
 
   return (
@@ -69,6 +87,10 @@ function App() {
               {currentScore} / {initialCards.length}{" "}
             </span>
           </div>
+        ) : showLoseScreen ? (
+          <LoseScreen onStartGame={handleStartGame} />
+        ) : showWinScreen ? (
+          <WinScreen onStartGame={handleStartGame} />
         ) : (
           <StartScreen onStartGame={handleStartGame} />
         )}

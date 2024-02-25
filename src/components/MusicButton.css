@@ -1,0 +1,13 @@
+.sound-button {
+  padding: 40px;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.sound-icon {
+  color: white;
+  cursor: pointer;
+  font-size: 40px;
+}

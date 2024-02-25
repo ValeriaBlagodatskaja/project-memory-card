@@ -5,8 +5,10 @@ import { useState } from "react";
 import initialCards from "./cardsData.jsx";
 import StartScreen from "./components/StartScreen";
 import ScoreBoard from "./components/ScoreBoard";
-import WinScreen from "./components/WinScreen.jsx";
-import LoseScreen from "./components/LoseScreen.jsx";
+import WinScreen from "./components/WinScreen";
+import LoseScreen from "./components/LoseScreen";
+import MusicButton from "./components/MusicButton";
+import shrekMusic from "./assets/all-star.mp3";
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -67,6 +69,9 @@ function App() {
       <div
         className={clsx("app", gameStarted ? "game-screen" : "start-screen")}
       >
+        <div className="music-button-container">
+          <MusicButton musicFile={shrekMusic} />
+        </div>
         {gameStarted ? (
           <div className="game-container">
             <ScoreBoard currentScore={currentScore} highScore={highScore} />

@@ -17,9 +17,10 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [cards, setCards] = useState(initialCards);
+  const [flipped, setFlipped] = useState(false);
 
   const shuffle = (array) => {
-    return array.sort(() => Math.random() - 0.5);
+    setCards(array.sort(() => Math.random() - 0.5));
   };
 
   const handleCardSelect = (index) => {
@@ -28,7 +29,10 @@ function App() {
         setShowLoseScreen(true);
         setGameStarted(false);
         setCurrentScore(0);
-        return initialCards.map((card) => ({ ...card, hasBeenClicked: false }));
+        return initialCards.map((card) => ({
+          ...card,
+          hasBeenClicked: false,
+        }));
       }
 
       const updatedCards = prevCards.map((card, i) =>
@@ -44,9 +48,17 @@ function App() {
         setHighScore((prevHighScore) =>
           currentScore + 1 > prevHighScore ? currentScore + 1 : prevHighScore
         );
-        return initialCards.map((card) => ({ ...card, hasBeenClicked: false }));
+        return initialCards.map((card) => ({
+          ...card,
+          hasBeenClicked: false,
+        }));
       }
 
+      setFlipped(true);
+
+      setTimeout(() => {
+        setFlipped(false);
+      }, 1000);
       shuffle(updatedCards);
 
       setCurrentScore((prevScore) => prevScore + 1);
@@ -83,6 +95,7 @@ function App() {
                     onClick={() => handleCardSelect(index)}
                     image={image}
                     imageAlt={imageAlt}
+                    flipped={flipped}
                   />
                 );
               })}

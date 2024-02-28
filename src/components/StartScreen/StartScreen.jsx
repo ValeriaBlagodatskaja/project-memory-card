@@ -2,6 +2,7 @@ import "./StartScreen.css";
 import { useState } from "react";
 
 const StartScreen = ({ onStartGame }) => {
+  // eslint-disable-next-line no-unused-vars
   const [showCards, setShowCards] = useState(false);
 
   const handleStartGame = () => {

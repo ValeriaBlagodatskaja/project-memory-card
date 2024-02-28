@@ -1,13 +1,13 @@
 import "./App.css";
 import clsx from "clsx";
-import Card from "./components/Card";
+import Card from "./components/Card/Card.jsx";
 import { useState } from "react";
 import initialCards from "./cardsData.jsx";
-import StartScreen from "./components/StartScreen";
-import ScoreBoard from "./components/ScoreBoard";
-import WinScreen from "./components/WinScreen";
-import LoseScreen from "./components/LoseScreen";
-import MusicButton from "./components/MusicButton";
+import StartScreen from "./components/StartScreen/StartScreen.jsx";
+import ScoreBoard from "./components/ScoreBoard/ScoreBoard.jsx";
+import WinScreen from "./components/WinScreen/WinScreen.jsx";
+import LoseScreen from "./components/LoseScreen/LoseScreen.jsx";
+import MusicButton from "./components/MusicButton/MusicButton.jsx";
 import shrekMusic from "./assets/all-star.mp3";
 
 function App() {

@@ -1,9 +1,10 @@
 import "./WinScreen.css";
 import { useState } from "react";
 import clsx from "clsx";
-import winGifs from "../winGifs";
+import winGifs from "../../winGifs";
 
 const WinScreen = ({ onStartGame, className }) => {
+  // eslint-disable-next-line no-unused-vars
   const [showCards, setShowCards] = useState(false);
 
   const handleStartGame = () => {

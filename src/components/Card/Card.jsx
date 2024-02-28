@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import "./Card.css";
-import cardBack from "../assets/card-back-2.jpeg?react";
+import cardBack from "../../assets/card-back-2.jpeg?react";
 
 export default function Card({ image, imageAlt, flipped, onClick }) {
   return (

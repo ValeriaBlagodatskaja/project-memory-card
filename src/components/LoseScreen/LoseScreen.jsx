@@ -1,9 +1,10 @@
 import "./LoseScreen.css";
 import { useState } from "react";
 import clsx from "clsx";
-import loseGifs from "../loseGifs";
+import loseGifs from "../../loseGifs";
 
 const LoseScreen = ({ onStartGame, className }) => {
+  // eslint-disable-next-line no-unused-vars
   const [showCards, setShowCards] = useState(false);
 
   const handleStartGame = () => {

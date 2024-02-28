@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  font-family: "Roboto Serif", serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.start-screen {
+  min-height: 100vh;
+  background-image: url("./assets/wallpaper.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-screen {
+  min-height: 100vh;
+  background-image: url("./assets/wallpaper-3.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}

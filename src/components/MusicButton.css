@@ -1,5 +1,5 @@
 .sound-button {
-  padding: 40px;
+  padding: 10px;
   appearance: none;
   cursor: pointer;
   border: none;
@@ -10,4 +10,10 @@
   color: white;
   cursor: pointer;
   font-size: 40px;
+}
+
+@media (min-width: 860px) {
+  .sound-button {
+    padding: 40px;
+  }
 }

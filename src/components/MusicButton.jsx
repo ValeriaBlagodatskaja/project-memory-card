@@ -17,7 +17,7 @@ const MusicButton = ({ musicFile }) => {
 
   return (
     <div>
-      <audio ref={audioRef} src={musicFile} />
+      <audio ref={audioRef} src={musicFile} loop />
       <button className="sound-button" onClick={toggleMusic}>
         {isPlaying ? (
           <FaVolumeUp className="sound-icon" />
